@@ -8,5 +8,5 @@ SELECT
     ROUND(AVG(gasolina_premium)::numeric, 2) AS promedio_premium,
     MAX(gasolina_premium) AS maximo_premium
 FROM public.precio_referencia;
-
+ 
 
