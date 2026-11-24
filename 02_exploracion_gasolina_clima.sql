@@ -9,5 +9,4 @@ SELECT
     MAX(gasolina_premium) AS maximo_premium
 FROM public.precio_referencia;
 
--- Nota: Los datos climáticos históricos de Baja California (temperaturas y precipitación)
--- se obtuvieron y analizaron desde la fuente externa Open-Meteo Historical Weather API.
+
