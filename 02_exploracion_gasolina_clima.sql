@@ -1,8 +1,13 @@
--- Consulta para revisar fechas y total de registros de gasolina en Baja California
-SELECT COUNT(*) AS total_registros, MIN(fecha) AS fecha_inicio, MAX(fecha) AS fecha_fin
-FROM public.precio_gasolina_estado
-WHERE estado ILIKE '%Baja California%';
+-- Consulta para explorar precios de referencia de gasolina (Magna, Premium y Diésel)
+SELECT 
+    COUNT(*) AS total_registros, 
+    MIN(fecha) AS fecha_inicio, 
+    MAX(fecha) AS fecha_fin,
+    ROUND(AVG(gasolina_magna)::numeric, 2) AS promedio_magna, 
+    MAX(gasolina_magna) AS maximo_magna,
+    ROUND(AVG(gasolina_premium)::numeric, 2) AS promedio_premium,
+    MAX(gasolina_premium) AS maximo_premium
+FROM public.precio_referencia;
 
--- Consulta para revisar fechas y total de registros del historial climatico
-SELECT COUNT(*) AS total_registros, MIN(fecha) AS fecha_inicio, MAX(fecha) AS fecha_fin
-FROM public.historial_clima;
+-- Nota: Los datos climáticos históricos de Baja California (temperaturas y precipitación)
+-- se obtuvieron y analizaron desde la fuente externa Open-Meteo Historical Weather API.
